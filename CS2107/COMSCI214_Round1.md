@@ -1,10 +1,10 @@
-# CS2107 CTF Writeups
+# COMSCI214 CTF Writeups
 
-This file documents my solutions for several CS2107 CTF challenges.
+This file documents my solutions for several COMSCI214 CTF challenges.
 
 ---
 
-## E.1 – Huge RSA
+## Huge RSA
 
 This challenge is a standard RSA decryption problem: we’re given `n`, `e = 65537`, and a ciphertext `C`, and we need to recover the plaintext flag.
 
@@ -67,11 +67,11 @@ Finally, convert this large integer to bytes and then to a string:
 
 This yields the flag:
 
-> `CS2107{B1G_but_f4ct0rDB_c4n_h3lP_m3_S0lV3}`
+> `COMSCI214{B1G_but_f4ct0rDB_c4n_h3lP_m3_S0lV3}`
 
 ---
 
-## E.2 – Password Attack
+## Password Attack
 
 We’re given an encrypted `.docx` file and a hint to use **Hashcat**. The plan is:
 
@@ -98,15 +98,15 @@ Hashcat command:
 
 Hashcat recovered the password:
 
-- `cs2107711923`
+- `COMSCI214711923`
 
 I used this password to open the document (I uploaded to Google Drive and opened it there) and got the flag:
 
-> `CS2107{greycat>hashcat_provemewrong}`
+> `COMSCI214{greycat>hashcat_provemewrong}`
 
 ---
 
-## E.3 – Plaintext Attack
+## Plaintext Attack
 
 We’re given a ZIP archive `sus_package.zip` containing two files:
 
@@ -141,22 +141,22 @@ This produces `no_password.zip`, which can be unzipped without a password.
 
 I then unzipped and read `flag.txt`, which contained:
 
-> `CS2107{but_what_if_zipcrypto_deflate_is_used_hmm...}`
+> `COMSCI214{but_what_if_zipcrypto_deflate_is_used_hmm...}`
 
 ---
 
-## M.2 – Secret Message
+## Secret Message
 
 This challenge is a **monoalphabetic substitution cipher**. The core idea is to use letter frequency and patterns (frequency analysis / “HOR” style reasoning) to recover the substitution, with a focus on the flag.
 
 Given ciphertext snippet (flag-shaped):
 
-- `JY2107{QO4SDY1Y_GRTCV3OE1D_QM56J}`
+- `JFPYJB214{QO4SDY1Y_GRTCV3OE1D_QM56J}`
 
-We’re told this is in the `CS2107{...}` flag format, so I started by mapping likely parts:
+We’re told this is in the `COMSCI214{...}` flag format, so I started by mapping likely parts:
 
-- `JY2107` → `CS2107`  
-  So `J → C` and `Y → S`.
+- `JFPYJB214` → `COMSCI214`  
+  So `J → C`, `F → O`, `P → M`, `Y → S`, `B → C`, `J → I`.
 
 Through frequency and pattern analysis:
 
@@ -165,7 +165,7 @@ Through frequency and pattern analysis:
 
 After some substitutions, I got:
 
-- `CS2107{AN4SDS1S_GRTCV3OE1D_AM56C}`
+- `COMSCI214{AN4SDS1S_GRTCV3OE1D_AM56C}`
 
 Continuing with frequency and common English patterns:
 
@@ -176,7 +176,7 @@ Continuing with frequency and common English patterns:
 
 After more substitutions and using context from the paragraph (e.g., `"THE SECRET"`, `"SITS NEAR THE END OF THIS..."`), I gradually filled in:
 
-- `CS2107{AN4SDS1S_FRECU3NT1D_AM56C}`
+- `COMSCI214{AN4SDS1S_FRECU3NT1D_AM56C}`
 
 From here, I recognized leetspeak:
 
@@ -191,13 +191,13 @@ From here, I recognized leetspeak:
 
 Final decrypted flag:
 
-> `CS2107{AN4SYS1S_FREQU3NT1Y_AB56C}`
+> `COMSCI214{AN4SYS1S_FREQU3NT1Y_AB56C}`
 
 (The challenge is about analyzing and frequently “ab”uses/leets letters.)
 
 ---
 
-## M.1 – Rolling Thunder
+## Rolling Thunder
 
 The code for this challenge implements a **rolling XOR** encryption:
 
@@ -255,11 +255,11 @@ Pseudo-code:
 
 Opening `new_flag.png` reveals the flag:
 
-> `CS2107{r0LL1ng_x0R_k4y_98bfa}`
+> `COMSCI214{r0LL1ng_x0R_k4y_98bfa}`
 
 ---
 
-## H.2 – PDF Collisions?!
+## PDF Collisions?!
 
 We need to create **two PDFs** that:
 
@@ -347,4 +347,4 @@ cat Pprime.bin "Assignment 1.pdf" > b.pdf
 Which still passes the md5sum command check, so I had to check that the initial bytes were different so I ran the following command:
 
 cmp -l a.pdf b.pdf | head
-Which did give me different bytes, so I submitted them to the website and got the following flag: CS2107{no_md5_for_you!!!}
+Which did give me different bytes, so I submitted them to the website and got the following flag: COMSCI214{no_md5_for_you!!!}

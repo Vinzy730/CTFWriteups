@@ -1,10 +1,10 @@
-# CS2107 CTF Writeups
+# CTF COMSCI214 Writeups Round 2
 
-This document contains my writeups for several CS2107 CTF challenges.
+This document contains my writeups for several COMSCI214 CTF challenges.
 
 ---
 
-## E.1 – Duck
+## Duck
 
 For this challenge, I used the PNG structure reference:
 
@@ -26,11 +26,11 @@ to understand how the PNG format is laid out, especially the `IHDR` chunk and ho
 
 After the final correction, the full image rendered correctly and revealed the flag:
 
-> **Flag:** `CS2107{c4n_you_s33_the_dUck_abc7d0f9}`
+> **Flag:** `COMSCI214{c4n_you_s33_the_dUck_abc7d0f9}`
 
 ---
 
-## E.2 – Bad Stack
+## Bad Stack
 
 This challenge demonstrates a classic **stack overflow** caused by the unsafe `gets` function.
 
@@ -58,11 +58,11 @@ After this:
 
 So the comparison passes and the program hits its win condition, printing the flag:
 
-> **Flag:** `CS2107{5t4ck_0v3rfl0w_c4n_0v3rwr1t3_1mp0rt4nt_v4r14bl3s!}`
+> **Flag:** `COMSCI214{5t4ck_0v3rfl0w_c4n_0v3rwr1t3_1mp0rt4nt_v4r14bl3s!}`
 
 ---
 
-## E.3 – Self-made NextCloud
+## Self-made NextCloud
 
 This challenge revolves around a **file upload vulnerability** in `upload.php`.
 
@@ -111,11 +111,11 @@ The core issue:
 
 This returned the flag:
 
-> **Flag:** `CS2107{ph9_png_cmDbYp4ss_F1l3_upl04d_vu1n?????}`
+> **Flag:** `COMSCI214{ph9_png_cmDbYp4ss_F1l3_upl04d_vu1n?????}`
 
 ---
 
-## M.2 – Evil-Cowsay
+## Evil-Cowsay
 
 This was a **ret2win** binary exploitation challenge.
 
@@ -180,11 +180,11 @@ This was a **ret2win** binary exploitation challenge.
 
 Running this exploit redirected execution to `win()` and printed:
 
-> **Flag:** `CS2107{c0ws4y_y0u_g0t_pwn3d…}`
+> **Flag:** `COMSCI214{c0ws4y_y0u_g0t_pwn3d…}`
 
 ---
 
-## M.3 – Onion-haseyo
+## Onion-haseyo
 
 This challenge involved multiple layers of **obfuscated `exec` calls** in Python. The idea was to unwrap all the layers and see what code was really being executed.
 
@@ -242,11 +242,11 @@ Strategy:
 
 By running the challenge with this patched `exec`, I could see each layer of dynamically generated code and follow the control flow all the way down to the real logic and the final flag.
 
-> **Flag:** `CS2107{byp4ss_l4yers_0f_0bfusc4t10n}`
+> **Flag:** `COMSCI214{byp4ss_l4yers_0f_0bfusc4t10n}`
 
 ---
 
-## H.1 – Why so complicated?
+## Why so complicated?
 
 This challenge implemented a custom **byte-by-byte encryption** of a fixed-length (51-byte) input.
 
@@ -346,4 +346,4 @@ I also programmed the script to reconstruct and print the entire 51-character fl
 
 Even with the slower method, the process eventually yielded the flag:
 
-> **Flag:** `CS2107{r3v3rs1n9_str3am_c1ph3r_s1d3_ch4nn3l_4tt4ck}`
+> **Flag:** `COMSCI214{r3v3rs1n9_str3am_c1ph3r_s1d3_ch4nn3l_4tt4ck}`
